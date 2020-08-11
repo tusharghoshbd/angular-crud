@@ -16,6 +16,8 @@ import { MenuComponent } from './shared/layout/menu/menu.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 import { UserService } from './services/user.service';
+import { I18nService } from './services/i18n.service';
+import {I18nPipe} from "./shared/i18n/i18n.pipe";
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { UserService } from './services/user.service';
     FooterComponent,
     HeaderComponent,
     MenuComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    I18nPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { UserService } from './services/user.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, I18nService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
