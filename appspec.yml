@@ -1,19 +1,19 @@
 version: 0.0
 os: linux
 files:
-  - source: /*
+  - source: /dist/my-dream-app/*
     destination: /var/www/angular-crud/dist/my-dream-app
 hooks:
-  BeforeInstall:
+  ApplicationStart:
     # - location: scripts/install_dependencies
     #   timeout: 300
     #   runas: root
     - location: scripts/start_server
-      timeout: 300
+      timeout: 120
       runas: root
   ApplicationStop:
     - location: scripts/stop_server
-      timeout: 300
+      timeout: 120
       runas: root
 
 
