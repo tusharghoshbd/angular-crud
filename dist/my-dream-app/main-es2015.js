@@ -52,7 +52,7 @@ module.exports = "\n<h1>Contact Page</h1>\n    "
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && onAddUserSubmit()\" #f=\"ngForm\" novalidate>\n            <div class=\"form-group\">\n                <label for=\"firstName\">First Name</label>\n                <input type=\"text\" \n                    class=\"form-control\" name=\"firstName\" [(ngModel)]=\"user.firstName\" #firstName=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && firstName.invalid }\" required />\n                <div *ngIf=\"firstName.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"firstName.errors.required\">First Name is required</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"lastName\">Last Name</label>\n                <input type=\"text\" class=\"form-control\" name=\"lastName\" [(ngModel)]=\"user.lastName\" #lastName=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && lastName.invalid }\" required />\n                <div *ngIf=\"lastName.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"lastName.errors.required\">Last Name is required</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"email\">Email</label>\n                <input type=\"text\" class=\"form-control\" name=\"email\" [(ngModel)]=\"user.email\" #email=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && email.invalid }\" required email />\n                <div *ngIf=\"email.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"email.errors.required\">Email is required</div>\n                    <div *ngIf=\"email.errors.email\">Email must be a valid email address</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <button   type=\"submit\" *ngIf=\"editFlag == false\" class=\"btn btn-primary\">Add User</button>\n                <button  type=\"submit\" *ngIf=\"editFlag == true\" class=\"btn btn-primary\">Update User</button>\n                <button  type=\"button\"  (click)=\"resetForm()\" class=\"btn btn-danger\" style=\"margin-left: 10px\">Reset</button>\n                \n            </div>\n        </form>\n    </div>\n    <div class=\"col-md-6\">\n            <table class=\"table table-bordered\">\n                    <thead>\n                      <tr>\n                        <th>Firstname</th>\n                        <th>Lastname</th>\n                        <th>Email</th>\n                        <th>action</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr *ngFor=\"let user of users\" >\n                        <td>{{user.firstName}}</td>\n                        <td>{{user.lastName}}</td>\n                        <td>{{user.email}}</td>\n                        <td> <a href=\"javascript:void()\" (click)=\"onEditUser(user.id, user)\">Edit</a> | \n                            <a href=\"javascript:void()\" (click)=\"onDeleteUser(user.id)\">Delete</a></td>\n                      </tr>\n                    </tbody>\n                  </table>\n    </div>\n</div>\n  "
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\">\n        <form name=\"form\" (ngSubmit)=\"f.form.valid && onAddUserSubmit()\" #f=\"ngForm\" novalidate>\n            <div class=\"form-group\">\n                <label for=\"firstName\">First Name</label>\n                <input type=\"text\" class=\"form-control\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                    #firstName=\"ngModel\" [ngClass]=\"{ 'is-invalid': f.submitted && firstName.invalid }\" required />\n                <div *ngIf=\"firstName.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"firstName.errors.required\">First Name is required</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"lastName\">Last Name</label>\n                <input type=\"text\" class=\"form-control\" name=\"lastName\" [(ngModel)]=\"user.lastName\" #lastName=\"ngModel\"\n                    [ngClass]=\"{ 'is-invalid': f.submitted && lastName.invalid }\" required />\n                <div *ngIf=\"lastName.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"lastName.errors.required\">Last Name is required</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"email\">Email</label>\n                <input type=\"text\" class=\"form-control\" name=\"email\" [(ngModel)]=\"user.email\" #email=\"ngModel\"\n                    [ngClass]=\"{ 'is-invalid': f.submitted && email.invalid }\" required email />\n                <div *ngIf=\"email.invalid\" class=\"invalid-feedback\">\n                    <div *ngIf=\"email.errors.required\">Email is required</div>\n                    <div *ngIf=\"email.errors.email\">Email must be a valid email address</div>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <button type=\"submit\" *ngIf=\"editFlag == false\" class=\"btn btn-primary\">Add User</button>\n                <button type=\"submit\" *ngIf=\"editFlag == true\" class=\"btn btn-primary\">Update User</button>\n                <button type=\"button\" (click)=\"resetForm()\" class=\"btn btn-danger\"\n                    style=\"margin-left: 10px\">Reset</button>\n\n            </div>\n        </form>\n    </div>\n    <div class=\"col-md-6\">\n        <table class=\"table table-bordered\">\n            <thead>\n                <tr>\n                    <th>Firstname</th>\n                    <th>Lastname</th>\n                    <th>Email</th>\n                    <th>action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let user of users\">\n                    <td>{{user.firstName}}</td>\n                    <td>{{user.lastName}}</td>\n                    <td>{{user.email}}</td>\n                    <td> <a href=\"javascript:void()\" (click)=\"onEditUser(user.id, user)\">Edit</a> |\n                        <a href=\"javascript:void()\" (click)=\"onDeleteUser(user.id)\">Delete</a></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<hr />\n<div class=\"row\">\n    <div class=\"col-md-12\">\n        <!-- <span> {{ 'Choose language'| i18n }}</span> -->\n        <div class=\"form-group\">\n            <label for=\"sel1\">{{ 'Choose language'| i18n }}</label>\n            <select class=\"form-control\" name=\"lang\" [(ngModel)]=\"selectLang\" (click)=\"changeLng()\">\n                <option value=\"en-US\">English</option>\n                <option value=\"fi-FI\">Finnish</option>\n            </select>\n        </div>\n\n        <br />\n        <h3> {{'Welcome!'|i18n}}</h3>\n    </div>\n</div>\n<hr />"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"row\">\n    <div class=\"col-md-12\">\n          
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-md-12\">\n            <h1>Header</h1>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-12\">\n            <h1>Header after code deploy recheck</h1>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -178,6 +178,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_layout_menu_menu_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/layout/menu/menu.component */ "./src/app/shared/layout/menu/menu.component.ts");
 /* harmony import */ var _pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/not-found/not-found.component */ "./src/app/pages/not-found/not-found.component.ts");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_i18n_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/i18n.service */ "./src/app/services/i18n.service.ts");
+/* harmony import */ var _shared_i18n_i18n_pipe__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/i18n/i18n.pipe */ "./src/app/shared/i18n/i18n.pipe.ts");
+
+
 
 
 
@@ -205,7 +209,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _shared_layout_footer_footer_component__WEBPACK_IMPORTED_MODULE_10__["FooterComponent"],
             _shared_layout_header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"],
             _shared_layout_menu_menu_component__WEBPACK_IMPORTED_MODULE_12__["MenuComponent"],
-            _pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"]
+            _pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_13__["NotFoundComponent"],
+            _shared_i18n_i18n_pipe__WEBPACK_IMPORTED_MODULE_16__["I18nPipe"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -213,7 +218,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]
         ],
-        providers: [_services_user_service__WEBPACK_IMPORTED_MODULE_14__["UserService"]],
+        providers: [_services_user_service__WEBPACK_IMPORTED_MODULE_14__["UserService"], _services_i18n_service__WEBPACK_IMPORTED_MODULE_15__["I18nService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
@@ -304,20 +309,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_i18n_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../services/i18n.service */ "./src/app/services/i18n.service.ts");
+
 
 
 
 let HomeComponent = class HomeComponent {
-    constructor(userService) {
+    constructor(userService, i18nService) {
         this.userService = userService;
+        this.i18nService = i18nService;
         //users:any = [];
         this.users = [];
         //user: any = { id:0, firstName:"", lastName:"", email:""};
         this.user = { id: 0, firstName: "", lastName: "", email: "" };
         this.editFlag = false;
+        this.selectLang = 'en-US';
     }
     ngOnInit() {
         this.getUser();
+    }
+    changeLng() {
+        this.i18nService.setLanguage(this.selectLang);
     }
     onAddUserSubmit() {
         //alert(JSON.stringify(this.user))
@@ -379,7 +391,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         selector: 'app-home',
         template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/home/home.component.html")
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _services_i18n_service__WEBPACK_IMPORTED_MODULE_3__["I18nService"]])
 ], HomeComponent);
 
 
@@ -450,6 +462,64 @@ PagesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/services/i18n.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/i18n.service.ts ***!
+  \******************************************/
+/*! exports provided: I18nService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I18nService", function() { return I18nService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs//operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let I18nService = class I18nService {
+    constructor(http, ref) {
+        this.http = http;
+        this.ref = ref;
+        this.setLanguage(localStorage.getItem('lang') || "en-US");
+    }
+    setLanguage(language) {
+        localStorage.setItem('lang', language);
+        this.currentLanguage = language;
+        this.fetch(language);
+    }
+    getTranslation(phrase, variableData = null) {
+        return this.data && this.data[phrase] ? this.data[phrase] : phrase;
+    }
+    fetch(locale) {
+        let langFilePath = `assets/langs/${locale}.json`;
+        this.fetchFile(langFilePath)
+            .subscribe((data) => {
+            this.data = data;
+            this.ref.tick();
+        });
+    }
+    fetchFile(url) {
+        return this.http.get(this.getBaseUrl() + url)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((data) => (data.data || data)));
+    }
+    getBaseUrl() {
+        return location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/';
+    }
+};
+I18nService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]])
+], I18nService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/user.service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/user.service.ts ***!
@@ -497,6 +567,42 @@ UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
 ], UserService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/i18n/i18n.pipe.ts":
+/*!******************************************!*\
+  !*** ./src/app/shared/i18n/i18n.pipe.ts ***!
+  \******************************************/
+/*! exports provided: I18nPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I18nPipe", function() { return I18nPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_i18n_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/i18n.service */ "./src/app/services/i18n.service.ts");
+
+
+
+let I18nPipe = class I18nPipe {
+    constructor(i18nService) {
+        this.i18nService = i18nService;
+    }
+    transform(phrase, args = null) {
+        return this.i18nService.getTranslation(phrase, args);
+    }
+};
+I18nPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'i18n',
+        pure: false
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_i18n_service__WEBPACK_IMPORTED_MODULE_2__["I18nService"]])
+], I18nPipe);
 
 
 
