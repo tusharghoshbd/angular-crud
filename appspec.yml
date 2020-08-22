@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/angular-crud/dist/my-dream-app
+    destination: /var/www/angular-crud
 hooks:
   ApplicationStart:
     # - location: scripts/install_dependencies
