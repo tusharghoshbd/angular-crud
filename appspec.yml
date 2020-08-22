@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /var/www/angular-crud
 hooks:
+  BeforeInstall:
+    - location: scripts/remove_root_dir
+      timeout: 900
+      runas: root
   ApplicationStart:
     # - location: scripts/install_dependencies
     #   timeout: 300
