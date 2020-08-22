@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /dist/my-dream-app/*
+  - source: /
     destination: /var/www/angular-crud/dist/my-dream-app
 hooks:
   ApplicationStart:
